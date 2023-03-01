@@ -12,8 +12,6 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table
 
 public class Product {
     @Id
