@@ -19,7 +19,7 @@ public class empresaController {
     @GetMapping({"/","/VerEmpresa"})
     public String viewEmpresas(Model model){
         List<Empresa> listEmpresas = empresaServices.getAllEmpresas();
-        model.addAttribute("empList",listEmpresas);
+        model.addAttribute("emplist",listEmpresas);
         return "verEmpresas";
     }
 }
