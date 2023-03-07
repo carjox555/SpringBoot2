@@ -16,10 +16,18 @@ public class empresaController {
 
     @Autowired
     EmpresaServices empresaServices;
-    @GetMapping({"/","/VerEmpresa"})
-    public String viewEmpresas(Model model){
+
+    @GetMapping({"/", "/VerEmpresa"})
+    public String viewEmpresas(Model model) {
         List<Empresa> listEmpresas = empresaServices.getAllEmpresas();
-        model.addAttribute("emplist",listEmpresas);
+        model.addAttribute("emplist", listEmpresas);
         return "verEmpresas";
+    }
+
+    @GetMapping("/AgregarEmpresa")
+    public String nuevaEmpresa(Model model) {
+        Empresa emp = new Empresa();
+        model.addAttribute("emp", emp);
+        return "agregarEmpresa";
     }
 }
