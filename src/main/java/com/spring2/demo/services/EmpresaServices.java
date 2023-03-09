@@ -21,19 +21,17 @@ public class EmpresaServices  {
     public Empresa getEmpresaById(Integer id){
         return empresaReposiory.findById(id).get();
     }
-    public boolean saveOrUpdateEmpresa(Empresa empresa){
+    // Guardar o actualizar
+    public Empresa saveOrUpdateEmpresa(Empresa empresa){
         Empresa emp = empresaReposiory.save(empresa);
-        if(empresaReposiory.findById(emp.getId())!=null){
-            return true;
-        }
-        return false;
+        return emp;
     }
     //metodo delete
     public boolean deleteEmpresa(Integer id){
         empresaReposiory.deleteById(id);
-        if(getEmpresaById(id)!=null){
-            return false;
+        if(empresaReposiory.findById(id)!=null){
+            return true;
         }
-        return true;
+        return false;
     }
 }
