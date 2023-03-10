@@ -45,7 +45,7 @@ public class empresaController {
             return "Se elimino la empres con id "+id;
         }
         else {
-            return "No se pudo eeminar la empresa con id "+ id;
+            return "No se pudo eliminar la empresa con id "+ id;
         }
     }
 }
