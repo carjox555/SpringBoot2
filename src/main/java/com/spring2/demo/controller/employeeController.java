@@ -31,5 +31,13 @@ public class employeeController {
         empl.setRol(employee.getRol());
         return employeeService.saveOrUpdateEmployee(empl);
     }
+    @DeleteMapping("/employee/{id}")
+    public String eliminarEmployee(@PathVariable("id")Integer id){
+        boolean repuesta= employeeService.deleteEmployee(id);
+        if (repuesta){
+            return "Se elimino correctamente el id: "+id;
+        }
+        return "No se pudo eliminar el empleado con id: "+id;
+    }
 
 }
