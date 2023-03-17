@@ -26,6 +26,11 @@ public class EmployeeService {
          return employeeRepository.findById(id);
         }
 
+        //Metodo para buscar empleado por empresa
+    public ArrayList<Employee> getByEnterprise(Integer id){
+        return employeeRepository.findByEmpresa(id);
+    }
+
         //Guardad o actualizar
     public Employee saveOrUpdateEmployee(Employee employee){
         return employeeRepository.save(employee);

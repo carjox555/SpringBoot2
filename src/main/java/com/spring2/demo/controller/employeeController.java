@@ -18,9 +18,13 @@ public class employeeController {
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping("/employee")
+    @PostMapping("/employee") //Guarda empleado nuevo
     public Optional<Employee>saveEmployee(@RequestBody Employee empl){
         return Optional.ofNullable(employeeService.saveOrUpdateEmployee(empl));
+    }
+    @GetMapping(path = "employees/{id}") //Consultar por id
+    public  Optional<Employee> employyeById(@PathVariable("id") Integer id){
+        return employeeService.getEmployeeById(id);
     }
     @PatchMapping("/employees/{id}")
     public Employee actualizarEmpleado(@PathVariable("id") Integer id, @RequestBody Employee employee){
@@ -31,7 +35,7 @@ public class employeeController {
         empl.setRol(employee.getRol());
         return employeeService.saveOrUpdateEmployee(empl);
     }
-    @DeleteMapping("/employee/{id}")
+    @DeleteMapping("/employee/{id}") //Eliminar Empleado
     public String eliminarEmployee(@PathVariable("id")Integer id){
         boolean repuesta= employeeService.deleteEmployee(id);
         if (repuesta){
